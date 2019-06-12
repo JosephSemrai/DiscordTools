@@ -15,7 +15,7 @@ bruhoffset = 4; //current discord offset
 
 found = document.getElementsByClassName("wrapper-2h3Puq")[0];
 found.setAttribute("class", "wrapper-2h3Puq");
-found.style.cssText = "z-index: 9000; height:15vh;"
+found.style.cssText = "z-index: 9000; height:15vh;";
 
 
 //create linebreak element
@@ -69,8 +69,8 @@ document.getElementById("joesebutton").onclick = function () {
             content = document.getElementsByClassName("channel-2QD9_O")[i].querySelector("a").querySelector(".name-2WpE7M").querySelector(".activity-525YDR").innerHTML;
             if (content.substring(0, 1) < threshold) {
                 console.log(content);
-                console.log(i)
-                console.log(bruhoffset)
+                console.log(i);
+                console.log(bruhoffset);
                 document.getElementsByClassName("close-3hZ5Ni")[i - bruhoffset].click();
 
                 if (autoClick) {
