@@ -1,3 +1,5 @@
+// Please note that due to the different CSS classes that Discord applies to the buttons depending on your device, the "automatic leave button presser" may not work. Thus, it is recommended that you just press the leave button yourself rapidly after running the tool.
+
 // var aTags = document.getElementsByClassName("channel-2QD9_O");
 // var searchText = "Nitro";
 // var found;
@@ -22,7 +24,7 @@ found.style.cssText = "z-index: 9000; height:15vh;";
 br = document.createElement("br");
 
 welcome = document.createElement("H1");
-welcomeinner = document.createTextNode("Welcome to RemoveGroupsBecauseAdamKeepsLeavingThemCausingAShitTonOfNotifications");
+welcomeinner = document.createTextNode("Welcome to this tool that is unnamed");
 welcome.appendChild(welcomeinner);
 welcome.style.cssText = "font-weight:bold; font-size: 2em; color: red; margin: 0vh 1vh 0vh 1vh; background: -webkit-linear-gradient(#FF8008, #FFC837); -webkit-background-clip: text; -webkit-text-fill-color: transparent;";
 
@@ -84,7 +86,6 @@ document.getElementById("joesebutton").onclick = function () {
                             break;
                         }
                     }
-
                     found.click();
                 }
             }
