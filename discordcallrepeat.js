@@ -1,7 +1,7 @@
 window.setInterval(callbruh(), 20);
 
 
-function callbruh() { var element = document.getElementsByClassName("memberOnline-1CIh-0 member-3W1lQa")[3]
+function callbruh() { var element = document.getElementsByClassName("member-3W1lQa")[0]
 	var e = element.ownerDocument.createEvent('MouseEvents');
 
 	e.initMouseEvent('contextmenu', true, true,
