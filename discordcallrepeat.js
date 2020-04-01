@@ -1,8 +1,8 @@
 window.setInterval(callbruh(), 20);
 
 
-function callbruh() { var element = document.getElementsByClassName("member-3W1lQa")[0]
-	var e = element.ownerDocument.createEvent('MouseEvents');
+function callbruh() { let element = document.getElementsByClassName("member-3-YXUe")[3]
+	let e = element.ownerDocument.createEvent('MouseEvents');
 
 	e.initMouseEvent('contextmenu', true, true,
 		 element.ownerDocument.defaultView, 1, 0, 0, 0, 0, false,
@@ -12,12 +12,14 @@ function callbruh() { var element = document.getElementsByClassName("member-3W1l
 	!element.dispatchEvent(e);
 
 
-	var ringbutton = document.getElementsByClassName("item-1Yvehc")[3];
-	if (ringbutton) {
-		ringbutton.click();
+	let ringButton = document.getElementsByClassName("item-1Yvehc")[3];
+	if (ringButton) {
+		ringButton.click();
 
 	}
-	console.log("calling");
+		     
+	let name = element.children[0].children[1].children[0].children[0].innerText
+	console.log("Calling " + name);
 }
 
 
