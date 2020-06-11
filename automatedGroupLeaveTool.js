@@ -1,11 +1,11 @@
 confirm("This app is dependent on it being updated as it relies on some tricky math with Discord's offset between the close variables and the actual user row. You may leave groups that you don't intend to leave if this hasn't been updated. Do you understand?");
 
 // Channel Selector Query Offset (amount of categories above the first user element in the messages column)
-const channelSelectorQueryOffset = 3;
+let channelSelectorOffset = 3;
+let limit = 150;
 
 found = document.getElementsByClassName("chat-3bRxxu")[0];
 found.style.cssText = "flex: 1";
-
 
 // Imperative UI creation
 br = document.createElement("br");
@@ -59,34 +59,35 @@ card.appendChild(br);
 card.appendChild(exclusionForm);
 card.appendChild(exclusionFormSubmitButton)
 
-
-
 // Add listener to the submit button so that we can execute the following function upon receiving a value;
 document.getElementById("awaitButton").onclick = function () {
-
+  
   // Input validation
   if (!form.value) return alert("Please enter a number.");
-
+  
     // const autoClick = confirm("Would you like to automatically leave the groups? (Press cancel for no) CURRENTLY NOT RECOMMENDED, WILL FREEZE DISCORD, PROCEED AT YOUR OWN RISK; JUST SPAM CLICK THE PROMPTS INSTEAD");
     const threshold = form.value;
-
-    i = channelSelectorQueryOffset;
-    while (document.getElementsByClassName("channel-2QD9_O")[i] != undefined) {
-        const innerChannelElement = document.getElementsByClassName("channel-2QD9_O")[i + channelSelectorQueryOffset].children[0]
+  
+    i = channelSelectorOffset;
+    while (document.getElementsByClassName("channel-2QD9_O")[i] != undefined && i < limit) {
+        const innerChannelElement = document.getElementsByClassName("channel-2QD9_O")[i + channelSelectorOffset].children[0]
 
         const channelDescriptors = innerChannelElement.children[1]
         const channelActions = innerChannelElement.children[2]
-        
+
         const memberCount = channelDescriptors.children[1].children[0] ? channelDescriptors.children[1].children[0].innerHTML : 0; // 0 members represents a non-group channel
         const channelName = channelDescriptors.children[0].children[0].innerHTML;
         
         const leaveAction = channelActions.children[0];
+      
+        console.log("Attempting to leave: " + channelName)
         
-        (memberCount < threshold) ? leaveAction.click() : console.log(`Skipping ${channelName}`);
-        
-        i++;
+        if (memberCount < threshold) {
+          console.log("Leaving: " + channelName)
+          leaveAction.click();
+        } else {
+          console.log(`Skipping: ${channelName}`);
+        }
+      i++;
     }
-
 };
-
-
